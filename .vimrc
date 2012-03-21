@@ -60,3 +60,4 @@ nnoremap g# g#zz
 nnoremap <C-h> :sp<CR>
 nnoremap <C-v> :vsp<CR>
 
+set pastetoggle=<C-p>
