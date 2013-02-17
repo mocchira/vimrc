@@ -1,4 +1,46 @@
 set nocompatible
+set tags+=/home/yk/dev/erlang/ctags.otp,/home/yk/dev/rust/ctags.rust
+"""vundle related
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'othree/eregex.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'camelcasemotion'
+" non github repos'
+"""Bundle 'git://git.wincent.com/command-t.git'
+" ...
+
+"""golang related
+set rtp+=$GOROOT/misc/vim
+
+filetype plugin indent on     " required!
+
+"""easymotion related
+let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+let g:EasyMotion_leader_key="%"
+let g:EasyMotion_grouping=1
+hi EasyMotionTarget ctermbg=none ctermfg=red
+hi EasyMotionShade  ctermbg=none ctermfg=blue
+
+"""My favorite settings
 set number
 set ruler
 set cmdheight=2
@@ -10,54 +52,35 @@ set wildmenu
 set showcmd
 "----------------
 syntax on
-colorscheme ron
 highlight LineNr ctermfg=darkgrey
 
 set smartcase
 set wrapscan
 set hlsearch
-
-set autoindent
-set cindent
+set autoindent smartindent
 set showmatch
 set backspace=indent,eol,start
 set clipboard=unnamed
 
-set tabstop=4
 set expandtab
 set smarttab
+set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set shiftround
 set nowrap
 
-nnoremap <Space>h <Home>
-nnoremap <Space>l <End>
-inoremap <Space>h <Home>
-inoremap <Space>l <End>
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
+nnoremap <C-k> ^d$
+nnoremap <C-a> <home>
+nnoremap <C-e> <End>
+nnoremap / :M/
+nnoremap ,/ /
+nnoremap s :FufFile<CR>
+
 inoremap <C-e> <Esc>
 
-inoremap <C-d> <Del>
-noremap <CR> i<CR><ESC>
+map <C-d> <Del>
+map <C-n> :NERDTreeToggle<CR>
+map <C-m> :TagbarToggle<CR>
 
-inoremap {} {}<LEFT>
-inoremap [] []<LEFT>
-inoremap () ()<LEFT>
-inoremap "" ""<LEFT>
-inoremap '' ''<LEFT>
-inoremap <> <><LEFT>
-
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
-
-nnoremap <C-h> :sp<CR>
-nnoremap <C-v> :vsp<CR>
-
-set pastetoggle=<C-p>
+autocmd vimenter * if !argc() | NERDTree | endif
