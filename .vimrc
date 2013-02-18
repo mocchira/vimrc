@@ -24,6 +24,10 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'camelcasemotion'
 Bundle 'AutoTag'
+Bundle 'bufexplorer.zip'
+Bundle 'argtextobj.vim'
+Bundle 'AutoClose'
+Bundle 'bufkill.vim'
 " non github repos'
 """Bundle 'git://git.wincent.com/command-t.git'
 " ...
@@ -35,7 +39,7 @@ filetype plugin indent on     " required!
 
 """easymotion related
 let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
-let g:EasyMotion_leader_key="%"
+let g:EasyMotion_leader_key="_"
 let g:EasyMotion_grouping=1
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
@@ -118,13 +122,14 @@ nnoremap <C-a> <home>
 nnoremap <C-e> <End>
 nnoremap / :M/
 nnoremap ,/ /
-nnoremap s :FufFile<CR>
+nnoremap ,s :FufFile<CR>
 
 inoremap <C-e> <Esc>
 
 map <C-d> <Del>
 map <C-n> :NERDTreeToggle<CR>
 map <C-m> :TagbarToggle<CR>
+map ,l <Leader>bv
 
 autocmd FileType erlang set tags+=/home/yk/dev/erlang/ctags.otp
 autocmd FileType go set tags+=/home/yk/dev/golang/ctags.go
