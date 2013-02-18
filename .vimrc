@@ -1,5 +1,4 @@
 set nocompatible
-set tags+=/home/yk/dev/erlang/ctags.otp,/home/yk/dev/rust/ctags.rust
 """vundle related
 filetype off                   " required!
 
@@ -24,6 +23,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'camelcasemotion'
+Bundle 'AutoTag'
 " non github repos'
 """Bundle 'git://git.wincent.com/command-t.git'
 " ...
@@ -40,6 +40,49 @@ let g:EasyMotion_grouping=1
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
 
+"""tagbar related
+let g:tagbar_type_rust = {
+    \ 'ctagstype' : 'rust',
+    \ 'kinds'     : [
+        \ 'T:types',
+        \ 's:structs',
+        \ 'c:classes',
+        \ 'm:modules',
+        \ 'C:consts',
+        \ 't:traits',
+        \ 'i:impls',
+        \ 'f:functions',
+    \ ]
+    \ }
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+"
 """My favorite settings
 set number
 set ruler
@@ -82,5 +125,9 @@ inoremap <C-e> <Esc>
 map <C-d> <Del>
 map <C-n> :NERDTreeToggle<CR>
 map <C-m> :TagbarToggle<CR>
+
+autocmd FileType erlang set tags+=/home/yk/dev/erlang/ctags.otp
+autocmd FileType go set tags+=/home/yk/dev/golang/ctags.go
+autocmd FileType rust set tags+=/home/yk/dev/rust/ctags.rust
 
 autocmd vimenter * if !argc() | NERDTree | endif
