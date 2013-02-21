@@ -115,7 +115,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set shiftround
-set nowrap
+set wrap
 
 nnoremap <C-k> ^d$
 nnoremap <C-a> <home>
@@ -123,8 +123,12 @@ nnoremap <C-e> <End>
 nnoremap / :M/
 nnoremap ,/ /
 nnoremap ,s :FufFile<CR>
+nmap ,p :set paste!<CR>
 
 inoremap <C-e> <Esc>
+
+nmap j gj
+nmap k gk
 
 map <C-d> <Del>
 map <C-n> :NERDTreeToggle<CR>
