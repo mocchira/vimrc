@@ -18,6 +18,9 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/syntastic'
+Bundle 'jimenezrick/vimerl'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -86,7 +89,6 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
-"
 """My favorite settings
 set number
 set ruler
