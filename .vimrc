@@ -35,6 +35,10 @@ Bundle 'bufkill.vim'
 """Bundle 'git://git.wincent.com/command-t.git'
 " ...
 
+"""fish related
+set shell=/bin/sh
+set noshelltemp
+
 """golang related
 set rtp+=$GOROOT/misc/vim
 
