@@ -2,47 +2,60 @@ set nocompatible
 """vundle related
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My Bundles here:
 "
 " original repos on github
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'othree/eregex.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'majutsushi/tagbar'
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'scrooloose/syntastic'
-Bundle 'jimenezrick/vimerl'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'othree/eregex.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'scrooloose/syntastic'
+Plugin 'jimenezrick/vimerl'
 
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'camelcasemotion'
-Bundle 'AutoTag'
-Bundle 'bufexplorer.zip'
-Bundle 'argtextobj.vim'
-Bundle 'AutoClose'
-Bundle 'bufkill.vim'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'camelcasemotion'
+Plugin 'AutoTag'
+Plugin 'bufexplorer.zip'
+Plugin 'argtextobj.vim'
+Plugin 'AutoClose'
+Plugin 'bufkill.vim'
 " non github repos'
 """Bundle 'git://git.wincent.com/command-t.git'
 " ...
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 """fish related
 set shell=/bin/sh
 set noshelltemp
 
 """golang related
-set rtp+=$GOROOT/misc/vim
-
-filetype plugin indent on     " required!
+"set rtp+=$GOROOT/misc/vim
 
 """easymotion related
 let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
@@ -141,8 +154,8 @@ map <C-n> :NERDTreeToggle<CR>
 map <C-m> :TagbarToggle<CR>
 map ,l <Leader>bv
 
-autocmd FileType erlang set tags+=/home/yk/dev/erlang/ctags.otp
-autocmd FileType go set tags+=/home/yk/dev/golang/ctags.go
-autocmd FileType rust set tags+=/home/yk/dev/rust/ctags.rust
+"autocmd FileType erlang set tags+=/home/yk/dev/erlang/ctags.otp
+"autocmd FileType go set tags+=/home/yk/dev/golang/ctags.go
+"autocmd FileType rust set tags+=/home/yk/dev/rust/ctags.rust
 
 autocmd vimenter * if !argc() | NERDTree | endif
